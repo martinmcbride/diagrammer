@@ -1,9 +1,7 @@
 # Diagrammer
 # MIT licence
 # Copyright 2021 Martin McBride
-import random
 
-from PySide2 import QtGui, QtCore
 from PySide2.QtWidgets import QApplication, QMainWindow, QAction, QVBoxLayout
 import sys
 from PySide2.QtGui import QIcon
@@ -19,7 +17,7 @@ class Window(QMainWindow):
         self.setWindowTitle("Diagrammer")
         self.setGeometry(300, 300, 500, 400)
 
-        self.create_menu()
+        self.createMenu()
 
         self.document = Document()
         self.canvas = Canvas(self, self.document)
@@ -28,7 +26,7 @@ class Window(QMainWindow):
         self.show()
         self.canvas.update()
 
-    def create_menu(self):
+    def createMenu(self):
         mainMenu = self.menuBar()
         fileMenu = mainMenu.addMenu("File")
 
@@ -41,13 +39,13 @@ class Window(QMainWindow):
         exitAction = QAction(QIcon('exit.png'), "Exit", self)
         exitAction.setShortcut("Ctrl+X")
 
-        exitAction.triggered.connect(self.exit_app)
+        exitAction.triggered.connect(self.exitApp)
 
         fileMenu.addAction(openAction)
         fileMenu.addAction(saveAction)
         fileMenu.addAction(exitAction)
 
-    def exit_app(self):
+    def exitApp(self):
         self.close()
 
 

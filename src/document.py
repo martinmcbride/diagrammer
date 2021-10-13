@@ -13,3 +13,9 @@ class Document:
     def paint(self, painter):
         for item in self.items:
             item.paint(painter)
+
+    def getSelectedItem(self, x, y):
+        for item in self.items:
+            if item.hasMouseOver(x, y):
+                return item
+        return None
